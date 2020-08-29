@@ -3,6 +3,7 @@ locals {
   #Create all peerings based on list of all gateways
   peerings = flatten([
     for gw in var.transit_gateways : [
+      #The slice below creates a new list with the remaining gateways excluding itself. E.g. based on input var.transit_gateways = ["gw1","gw2","gw3","gw4","gw5","gw6","gw7","gw8","gw9","gw10"] and we arrive at gw = "gw6" in the for loop for example, the sliced list will result in: ["gw7","gw8","gw9","gw10"]
       for peer_gw in slice(var.transit_gateways, index(var.transit_gateways, gw) + 1, length(var.transit_gateways)) : {
         gw1 = gw
         gw2 = peer_gw
