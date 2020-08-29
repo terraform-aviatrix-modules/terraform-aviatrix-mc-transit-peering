@@ -18,7 +18,7 @@ module "transit-peering" {
   source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
   version = "1.0.0"
 
-  gateway_names = ["gw1","gw2","gw3","gw4","gw5"]
+  transit_gateways = ["gw1","gw2","gw3","gw4","gw5"]
 }
 ```
 
