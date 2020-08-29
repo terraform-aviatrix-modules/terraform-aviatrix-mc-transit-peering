@@ -12,13 +12,13 @@ locals {
 
   #Create map for consumption in for_each.
   peerings_map = {
-    for peering in local.peerings: "${peering.gw1}:${peering.gw2}" => peering
+    for peering in local.peerings : "${peering.gw1}:${peering.gw2}" => peering
   }
 
 }
 
 resource "aviatrix_transit_gateway_peering" "peering" {
-  for_each = local.peerings_map
-  transit_gateway_name1             = each.value.gw1
-  transit_gateway_name2             = each.value.gw2
+  for_each              = local.peerings_map
+  transit_gateway_name1 = each.value.gw1
+  transit_gateway_name2 = each.value.gw2
 }
