@@ -1,7 +1,7 @@
 # terraform-aviatrix-mc-transit-peering
 
 ### Description
-\<Provide a description of the module>
+This module will create a full mesh transit for all gateway names provided in the transit_gateways list input variable. Excluded network cidrs is not supported.
 
 ### Diagram
 \<Provide a diagram of the high level constructs thet will be created by this module>
