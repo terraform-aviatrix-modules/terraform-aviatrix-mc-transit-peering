@@ -31,6 +31,6 @@ resource "aviatrix_transit_gateway_peering" "peering" {
       gateway2_excluded_tgw_connections,
       prepend_as_path1,
       prepend_as_path2,
-      ]
+    ]
   }
 }
