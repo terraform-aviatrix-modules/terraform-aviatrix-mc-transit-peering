@@ -10,13 +10,14 @@ This module will create a full mesh transit for all gateway names provided in th
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v1.0.1 | v0.13 | |
 v1.0.0 | | |
 
 ### Usage Example
 ```
 module "transit-peering" {
   source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
-  version = "1.0.0"
+  version = "1.0.1"
 
   transit_gateways = [
     "gw1",
