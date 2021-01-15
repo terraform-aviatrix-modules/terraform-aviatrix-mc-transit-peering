@@ -22,4 +22,15 @@ resource "aviatrix_transit_gateway_peering" "peering" {
   for_each              = local.peerings_map
   transit_gateway_name1 = each.value.gw1
   transit_gateway_name2 = each.value.gw2
+
+  lifecycle {
+    ignore_changes = [
+      gateway1_excluded_network_cidrs,
+      gateway2_excluded_network_cidrs,
+      gateway1_excluded_tgw_connections,
+      gateway2_excluded_tgw_connections,
+      prepend_as_path1,
+      prepend_as_path2,
+      ]
+  }
 }
