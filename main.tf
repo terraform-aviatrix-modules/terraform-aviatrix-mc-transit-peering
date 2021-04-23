@@ -15,7 +15,6 @@ locals {
   peerings_map = {
     for peering in local.peerings : "${peering.gw1}:${peering.gw2}" => peering
   }
-
 }
 
 resource "aviatrix_transit_gateway_peering" "peering" {
@@ -23,11 +22,11 @@ resource "aviatrix_transit_gateway_peering" "peering" {
   transit_gateway_name1               = each.value.gw1
   transit_gateway_name2               = each.value.gw2
   enable_peering_over_private_network = var.enable_peering_over_private_network
+  gateway1_excluded_network_cidrs     = var.excluded_cidrs
+  gateway2_excluded_network_cidrs     = var.excluded_cidrs
 
   lifecycle {
     ignore_changes = [
-      gateway1_excluded_network_cidrs,
-      gateway2_excluded_network_cidrs,
       gateway1_excluded_tgw_connections,
       gateway2_excluded_tgw_connections,
       prepend_as_path1,
