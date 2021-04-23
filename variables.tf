@@ -14,3 +14,9 @@ variable "excluded_cidrs" {
   description = "A list of CIDR's to exclude on the peers"
   default     = []
 }
+
+variable "enable_single_tunnel_mode" {
+  type        = bool
+  description = "Enable single tunnel mode."
+  default     = false
+}

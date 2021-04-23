@@ -24,6 +24,7 @@ resource "aviatrix_transit_gateway_peering" "peering" {
   enable_peering_over_private_network = var.enable_peering_over_private_network
   gateway1_excluded_network_cidrs     = var.excluded_cidrs
   gateway2_excluded_network_cidrs     = var.excluded_cidrs
+  enable_single_tunnel_mode           = var.enable_single_tunnel_mode
 
   lifecycle {
     ignore_changes = [

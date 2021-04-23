@@ -10,7 +10,7 @@ This module will create a full mesh transit for all gateway names provided in th
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
-v1.0.3 | v0.13 | >=v6.2 | >=v2.17.1
+v1.0.3 | v0.13 | >=v6.3 | >=v2.18.0
 v1.0.2 | v0.13 | >=v6.2 | >=v2.17.1
 v1.0.1 | v0.13 | |
 v1.0.0 | v0.12 | |
@@ -48,6 +48,7 @@ key | default | value
 :---|:---|:---
 enable_peering_over_private_network | false | Enable to use a private circuit for setting up peering
 excluded_cidrs | [] | list of excluded cidrs. This will be applied to all peerings on both sides. If you need more granularity, it is suggested to use the aviatrix_transit_gateway_peering resource directly in stead of this module.
+enable_single_tunnel_mode | false | Enable single tunnel mode. Will be applied to all peerings. If you need more granularity, it is suggested to use the aviatrix_transit_gateway_peering resource directly in stead of this module.
 
 ### Outputs
 This module will return the following outputs:
