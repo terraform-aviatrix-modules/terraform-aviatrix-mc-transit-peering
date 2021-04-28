@@ -8,3 +8,15 @@ variable "enable_peering_over_private_network" {
   description = "Enable to use a private circuit for setting up peering"
   default     = false
 }
+
+variable "excluded_cidrs" {
+  type        = list(string)
+  description = "A list of CIDR's to exclude on the peers"
+  default     = []
+}
+
+variable "enable_single_tunnel_mode" {
+  type        = bool
+  description = "Enable single tunnel mode."
+  default     = false
+}
