@@ -20,7 +20,7 @@ v1.0.0 | v0.12 | |
 ```
 module "transit-peering" {
   source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
-  version = "1.0.3"
+  version = "1.0.4"
 
   transit_gateways = [
     "gw1",
