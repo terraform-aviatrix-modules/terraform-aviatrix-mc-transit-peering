@@ -24,7 +24,7 @@ variable "enable_single_tunnel_mode" {
 variable "enable_insane_mode_encryption_over_internet" {
   type        = bool
   description = "Enable insane mode over internet"
-  default     = false
+  default     = null
 }
 
 variable "tunnel_count" {
