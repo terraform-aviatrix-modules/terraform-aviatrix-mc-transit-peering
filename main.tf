@@ -1,5 +1,4 @@
 locals {
-
   #Create all peerings based on list of all gateways
   peerings = flatten([
     for gw in var.transit_gateways : [
@@ -15,10 +14,13 @@ locals {
   peerings_map = {
     for peering in local.peerings : "${peering.gw1}:${peering.gw2}" => peering
   }
+
+  #Pass the peerings_map or an empty map to the resource, based on var.create_peerings.
+  peerings_resources = var.create_peerings ? local.peerings_map : {}
 }
 
 resource "aviatrix_transit_gateway_peering" "peering" {
-  for_each                                    = local.peerings_map
+  for_each                                    = local.peerings_resources
   transit_gateway_name1                       = each.value.gw1
   transit_gateway_name2                       = each.value.gw2
   enable_peering_over_private_network         = var.enable_peering_over_private_network

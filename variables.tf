@@ -32,3 +32,9 @@ variable "tunnel_count" {
   description = "Amount of tunnels to build for insane mode over internet"
   default     = null
 }
+
+variable "create_peerings" {
+  type        = bool
+  description = "Toggle for setting peering resource creation on or off. When set to false, it only generates the peerings output."
+  default     = true
+}
