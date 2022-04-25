@@ -38,3 +38,8 @@ variable "create_peerings" {
   description = "Toggle for setting peering resource creation on or off. When set to false, it only generates the peerings output."
   default     = true
 }
+
+variable "prune_list" {
+  type    = list(map(string))
+  default = []
+}

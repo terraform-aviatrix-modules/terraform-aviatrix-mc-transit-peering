@@ -6,12 +6,10 @@ This module will create a full mesh transit for all gateway names provided in th
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
-v1.0.5 | v0.13 + v1.x | >=v6.4 | >=v2.19.0
-v1.0.4 | v0.13 + v0.14 | >=v6.4 | >=v2.19.0
-v1.0.3 | v0.13 | >=v6.3 | >=v2.18.0
-v1.0.2 | v0.13 | >=v6.2 | >=v2.17.1
-v1.0.1 | v0.13 | |
-v1.0.0 | v0.12 | |
+v1.0.6 | v0.13 + v1.x | >=v6.4 | >=v2.19.0
+
+Check [release notes](https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-transit-peering/blob/master/RELEASE_NOTES.md) for more details.
+Check [compatibility list](https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-transit-peering/blob/master/COMPATIBILITY.md) for older versions.
 
 ### Usage Example
 ```
@@ -50,6 +48,7 @@ enable_single_tunnel_mode | false | Enable single tunnel mode. Will be applied t
 enable_insane_mode_encryption_over_internet | false | Enable insane mode over internet. Will be applied to all peerings. If you need more granularity, it is suggested to use the aviatrix_transit_gateway_peering resource directly in stead of this module.
 tunnel_count | | Amount of tunnels to build for insane mode over internet. Will be applied to all peerings. If you need more granularity, it is suggested to use the aviatrix_transit_gateway_peering resource directly in stead of this module.
 create_peerings | true | Toggle for setting peering resource creation on or off. When set to false, it only generates the peerings output so you can use it outside of this module.
+prune_list | [] | A list of maps for peerings that should not be created. Expects gateway name. Example: [ {"gw5" : "gw1"}, {"gw3" : "gw4"}, ]
 
 ### Outputs
 This module will return the following outputs:

@@ -12,7 +12,7 @@ locals {
 
   #Create map for consumption in for_each.
   peerings_map = {
-    for peering in local.peerings : "${peering.gw1}:${peering.gw2}" => peering
+    for peering in local.peerings : "${peering.gw1}:${peering.gw2}" => peering if !contains(var.prune_list, tomap({ (peering.gw1) : (peering.gw2) })) && !contains(var.prune_list, tomap({ (peering.gw2) : (peering.gw1) }))
   }
 
   #Pass the peerings_map or an empty map to the resource, based on var.create_peerings.
