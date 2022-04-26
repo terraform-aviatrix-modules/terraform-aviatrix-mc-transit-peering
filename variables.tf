@@ -7,18 +7,21 @@ variable "enable_peering_over_private_network" {
   type        = bool
   description = "Enable to use a private circuit for setting up peering"
   default     = false
+  nullable    = false
 }
 
 variable "excluded_cidrs" {
   type        = list(string)
   description = "A list of CIDR's to exclude on the peers"
   default     = []
+  nullable    = false
 }
 
 variable "enable_single_tunnel_mode" {
   type        = bool
   description = "Enable single tunnel mode."
   default     = false
+  nullable    = false
 }
 
 variable "enable_insane_mode_encryption_over_internet" {
@@ -37,9 +40,11 @@ variable "create_peerings" {
   type        = bool
   description = "Toggle for setting peering resource creation on or off. When set to false, it only generates the peerings output."
   default     = true
+  nullable    = false
 }
 
 variable "prune_list" {
-  type    = list(map(string))
-  default = []
+  type     = list(map(string))
+  default  = []
+  nullable = false
 }
