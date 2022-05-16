@@ -26,7 +26,7 @@ module "transit-peering" {
   ]
 
   excluded_cidrs = [
-    0.0.0.0/0,
+    "0.0.0.0/0",
   ]
 }
 ```
