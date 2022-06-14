@@ -1,4 +1,4 @@
 output "peerings" {
-  value       = local.peerings_map
+  value       = nonsensitive(local.peerings_map)
   description = "Map of all created peerings"
 }
