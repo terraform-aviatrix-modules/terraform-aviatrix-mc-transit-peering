@@ -29,6 +29,7 @@ resource "aviatrix_transit_gateway_peering" "peering" {
   enable_single_tunnel_mode                   = var.enable_single_tunnel_mode
   enable_insane_mode_encryption_over_internet = var.enable_insane_mode_encryption_over_internet
   tunnel_count                                = var.tunnel_count
+  enable_max_performance                      = var.enable_max_performance
 
   lifecycle {
     ignore_changes = [

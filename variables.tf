@@ -48,3 +48,9 @@ variable "prune_list" {
   default  = []
   nullable = false
 }
+
+variable "enable_max_performance" {
+  description = "Indicates whether the maximum amount of HPE tunnels will be created. Only valid when the two transit gateways are each launched in Insane Mode and in the same cloud type."
+  type        = bool
+  default     = null
+}

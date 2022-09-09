@@ -1,6 +1,7 @@
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v1.0.7 | v1.x | >=v6.8 | >=v2.23.0
 v1.0.6 | v0.13 + v1.x | >=v6.4 | >=v2.19.0
 v1.0.5 | v0.13 + v1.x | >=v6.4 | >=v2.19.0
 v1.0.4 | v0.13 + v0.14 | >=v6.4 | >=v2.19.0
