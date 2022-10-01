@@ -15,7 +15,7 @@ Check [compatibility list](https://github.com/terraform-aviatrix-modules/terrafo
 ```
 module "transit-peering" {
   source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
-  version = "1.0.7"
+  version = "1.0.8"
 
   transit_gateways = [
     "gw1",
