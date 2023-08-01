@@ -2,6 +2,7 @@
 
 ## SCENARIO 1 - AS-PATH prepending for transit gateways' peerings 
 <img src="https://github.com/conip/terraform-aviatrix-mc-transit-peering/blob/ba8cedb3a922b67f9093e500db9b5859629068a3/examples/example1%20-%20as-path-prepending/img/as-path-prepending-use-case1.jpeg" title="AS PATH PREPENDING">
+
 ### Example Code to achieve the above:
 
 ```hcl
