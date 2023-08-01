@@ -6,7 +6,7 @@ This module will create a full mesh transit for all gateway names provided in th
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
-v1.0.7 | v1.x | >=v6.8 | >=v2.23.0
+v1.0.9 | v1.x | >=v6.8 | >=v2.23.0
 
 Check [release notes](https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-transit-peering/blob/master/RELEASE_NOTES.md) for more details.
 Check [compatibility list](https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-transit-peering/blob/master/COMPATIBILITY.md) for older versions.
@@ -50,6 +50,8 @@ enable_single_tunnel_mode | false | Enable single tunnel mode. Will be applied t
 excluded_cidrs | [] | list of excluded cidrs. This will be applied to all peerings on both sides. If you need more granularity, it is suggested to use the aviatrix_transit_gateway_peering resource directly in stead of this module.
 prune_list | [] | A list of maps for peerings that should not be created. Expects gateway name. Example: [ {"gw5" : "gw1"}, {"gw3" : "gw4"}, ]
 tunnel_count | | Amount of tunnels to build for insane mode over internet. Will be applied to all peerings. If you need more granularity, it is suggested to use the aviatrix_transit_gateway_peering resource directly in stead of this module.
+full_mesh_prepending | null | Accepted values: numbers. If provided AS-PATH prepend will be added number of times unless specific prepending is provided in "prepending" attribute which takes precedence. 
+prepending | null | List of Transit Gateways pairs with their prepending numbers. Example [{"gw1":1, "gw2":3}, {"gw5":1,"gw4":1}]. Prepending is unidirectional that means gw1 would prepend just once towards gw2 but gw2 would prepend x3 towards gw1. 
 
 ### Outputs
 This module will return the following outputs:

@@ -54,3 +54,15 @@ variable "enable_max_performance" {
   type        = bool
   default     = null
 }
+
+variable "prepending" {
+  description = "Allows to explicitly specify prepending optins for individual pair of Transit Gateways."
+  default     = null
+  type        = list(map(number))
+}
+
+variable "full_mesh_prepending" {
+  description = "Add prepending to all full mesh peerings number of times provided by this variable."
+  default     = null
+  type        = number
+}
