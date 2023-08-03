@@ -12,7 +12,8 @@ Check [release notes](https://github.com/terraform-aviatrix-modules/terraform-av
 Check [compatibility list](https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-transit-peering/blob/master/COMPATIBILITY.md) for older versions.
 
 ### Usage Example
-```
+
+```hcl
 module "transit-peering" {
   source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
   version = "1.0.8"
@@ -30,6 +31,46 @@ module "transit-peering" {
   ]
 }
 ```
+
+```hcl
+module "mc-transit-peering" {
+  source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
+  version = "1.0.9"
+
+  prepending = [
+    {
+      "GW1" : 0,
+      "GW2" : 0
+    },
+    {
+      "GW3" : 0,
+      "GW4" : 0
+    },
+    {
+      "GW1" : 2,
+      "GW3" : 2
+    },
+    {
+      "GW2" : 2,
+      "GW3" : 2
+    },
+    {
+      "GW2" : 2,
+      "GW4" : 2
+    },
+  ]
+
+  transit_gateways_with_local_as = {
+    "GW1" : 65051,
+    "GW2" : 65052,
+    "GW3" : 65053,
+    "GW4" : 65054
+  }
+}
+
+```
+
+
 ### Variables
 The following variables are required:
 
