@@ -35,7 +35,8 @@ The following variables are required:
 
 key | value
 :--- | :---
-transit_gateways | List of transit gateway names to create full mesh peering from
+transit_gateways | List of transit gateway names to create full mesh peering from. NOT REQURED if "transit_gateways_with_local_as" provided. 
+transit_gateways_with_local_as | Map of transit gateway names and their corresponding AS numbers. REQUIRED only when using prepending.
 
 The following variables are optional:
 

@@ -43,13 +43,13 @@ module "mc-transit-peering" {
 
   full_mesh_prepending = 3
 
-  transit_gateways = [
-    "GW1",
-    "GW2",
-    "GW3",
-    "GW4",
-    "GW5",
-    "GW6"
-  ]
+  transit_gateways_with_local_as = {
+    "GW1" : 65051,
+    "GW2" : 65052,
+    "GW3" : 65053,
+    "GW4" : 65054,
+    "GW5" : 65055,
+    "GW6" : 65056
+  }
 }
 ```
