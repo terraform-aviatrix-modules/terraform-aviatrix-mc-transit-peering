@@ -1,9 +1,11 @@
 locals {
-  #Create all peerings based on list of all gateways
+  # sorting initial GW list as key created in peerings_map is i.e. GW1:GW2 and naming order matters for prepending list of map (which is sorted when passed into module by default)
+  transit_gateways_sorted = sort(var.transit_gateways)
+  # Create all peerings based on list of all gateways  
   peerings = flatten([
-    for gw in var.transit_gateways : [
+    for gw in local.transit_gateways_sorted : [
       #The slice below creates a new list with the remaining gateways excluding itself. E.g. based on input var.transit_gateways = ["gw1","gw2","gw3","gw4","gw5","gw6","gw7","gw8","gw9","gw10"] and we arrive at gw = "gw6" in the for loop for example, the sliced list will result in: ["gw7","gw8","gw9","gw10"]
-      for peer_gw in slice(sort(var.transit_gateways), index(var.transit_gateways, gw) + 1, length(var.transit_gateways)) : {
+      for peer_gw in slice(local.transit_gateways_sorted, index(local.transit_gateways_sorted, gw) + 1, length(var.transit_gateways)) : {
         gw1 = gw
         gw2 = peer_gw
       }
@@ -25,12 +27,12 @@ locals {
   prepending = var.prepending
 
   # creates the list of the same structure as the peerings_map as its easier to merge them for values searching for key
-  modification_1 = {
+  modification_1 = try({
     for i in range(length(local.prepending)) : "${keys(local.prepending[i])[0]}:${keys(local.prepending[i])[1]}" => {
       gw1 = values(local.prepending[i])[0]
       gw2 = values(local.prepending[i])[1]
     }
-  }
+  },null)
 
   peerings2 = {
     for key1, value1 in local.peerings_map : key1 => {
@@ -46,8 +48,7 @@ locals {
     }
   }
 
-
-  #Pass the peerings_map or an empty map to the resource, based on var.create_peerings.
+  # Pass the peerings_map or an empty map to the resource, based on var.create_peerings.
   peerings_resources = var.create_peerings ? local.peerings2 : null
 }
 
@@ -56,7 +57,6 @@ data "aviatrix_transit_gateway" "gw_info_list" {
   count   = length(var.transit_gateways)
   gw_name = var.transit_gateways[count.index]
 }
-
 
 resource "aviatrix_transit_gateway_peering" "peering" {
   for_each                                    = try(nonsensitive(local.peerings_resources), local.peerings_resources)
