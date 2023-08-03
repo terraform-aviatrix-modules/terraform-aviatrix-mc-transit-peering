@@ -30,7 +30,6 @@ module "transit-peering" {
   ]
 }
 ```
-
 ### Variables
 The following variables are required:
 
