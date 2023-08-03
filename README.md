@@ -39,19 +39,11 @@ module "mc-transit-peering" {
 
   prepending = [
     {
-      "GW1" : 0,
-      "GW2" : 0
+      "GW1" : 1,
+      "GW3" : 1
     },
     {
-      "GW3" : 0,
-      "GW4" : 0
-    },
-    {
-      "GW1" : 2,
-      "GW3" : 2
-    },
-    {
-      "GW2" : 2,
+      "GW2" : 4,
       "GW3" : 2
     },
     {
