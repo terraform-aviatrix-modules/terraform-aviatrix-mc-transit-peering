@@ -11,19 +11,19 @@ v1.0.9 | v1.x | >=v6.8 | >=v2.23.0
 Check [release notes](https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-transit-peering/blob/master/RELEASE_NOTES.md) for more details.
 Check [compatibility list](https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-transit-peering/blob/master/COMPATIBILITY.md) for older versions.
 
-### Usage Example
+### Usage Example 1 - Old deployment with exact same order of transit_gateways list provided
 
 ```hcl
 module "transit-peering" {
   source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
-  version = "1.0.8"
+  version = "1.0.9"
 
   transit_gateways = [
-    "gw1",
-    "gw2",
-    "gw3",
-    "gw4",
-    "gw5"
+    "GW1",
+    "GW2",
+    "GW3",
+    "GW4",
+    "GW5"
   ]
 
   excluded_cidrs = [
@@ -31,6 +31,8 @@ module "transit-peering" {
   ]
 }
 ```
+
+### Usage Example 2 - New deployment
 
 ```hcl
 module "mc-transit-peering" {
@@ -56,7 +58,8 @@ module "mc-transit-peering" {
     "GW1" : 65051,
     "GW2" : 65052,
     "GW3" : 65053,
-    "GW4" : 65054
+    "GW4" : 65054,
+    "GW5" : 65055
   }
 }
 

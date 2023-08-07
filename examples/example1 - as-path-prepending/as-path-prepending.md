@@ -3,6 +3,8 @@
 ## SCENARIO 1 - AS-PATH prepending for transit gateways' peerings 
 <img src="https://github.com/conip/terraform-aviatrix-mc-transit-peering/blob/ba8cedb3a922b67f9093e500db9b5859629068a3/examples/example1%20-%20as-path-prepending/img/as-path-prepending-use-case1.jpeg" title="AS PATH PREPENDING">
 
+By default all transit peerings should have prepending enabled with value of 3. Specific regional transit peerings shouldn't have any prepending (0). Two regions should act as fallback to each other so prepending of 2 is applied. 
+
 ### Example Code to achieve the above:
 
 ```hcl
