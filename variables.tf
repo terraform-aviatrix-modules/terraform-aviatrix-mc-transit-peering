@@ -1,6 +1,15 @@
 variable "transit_gateways" {
   type        = list(string)
   description = "List of transit gateway names to create full mesh peering from"
+  default     = null
+  nullable    = true
+}
+
+variable "transit_gateways_with_local_as" {
+  type        = map(number)
+  description = "Map of transit gateways with local_as_numbers."
+  default     = null
+  nullable    = true
 }
 
 variable "enable_peering_over_private_network" {
@@ -54,3 +63,15 @@ variable "enable_max_performance" {
   type        = bool
   default     = null
 }
+
+variable "prepending" {
+  default = null
+  # type = map(map(list(string)))
+  type = list(map(number))
+}
+
+variable "full_mesh_prepending" {
+  default = null
+  type    = number
+}
+
