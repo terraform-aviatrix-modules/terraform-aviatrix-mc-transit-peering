@@ -1,6 +1,6 @@
 locals {
   # if the transit_gateways is not provided use the map transit_gateways_with_local_as - that is for new use of mc-transit-peering
-  transit_gateways = coalesce(var.transit_gateways, try(keys(var.transit_gateways_with_local_as),null))
+  transit_gateways = coalesce(var.transit_gateways, try(keys(var.transit_gateways_with_local_as), null))
 
   #Compiled map
   transit_map = { for gw in local.transit_gateways : gw => {
